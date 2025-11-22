@@ -1,0 +1,15 @@
+streamlit
+pandas
+numpy
+scikit-learn
+xgboost
+matplotlib
+joblib
+openpyxl
+xlsxwriter
+python-dateutil
+tqdm
+pycryptodome
+importlib-metadata
+plotly
+seaborn
