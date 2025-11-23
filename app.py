@@ -115,8 +115,7 @@ st.title("🛡 CyberSecure — Intrusion Detection Dashboard")
 
 # Sidebar controls
 st.sidebar.header("Controls")
-threshold = st.sidebar.slider("Intrusion decision threshold (probability)", 0.01, 0.99, 0.5, 0.01,
-                              help="Lower threshold = more sensitive (higher Recall). This threshold is applied to intrusion probability.")
+threshold = 0.5
 uploaded = st.sidebar.file_uploader("Upload flows CSV/XLSX (optional)", type=["csv","xlsx"])
 append_blocks = st.sidebar.checkbox("Append detected intrusions to persistent chain.json", value=False)
 show_preview_count = st.sidebar.number_input("Preview max rows", min_value=5, max_value=1000, value=50)
@@ -788,3 +787,4 @@ with tab4:
                 st.info(f"SHAP dependence control failed: {e}")
 
         # End of SHAP section
+
