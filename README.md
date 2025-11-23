@@ -127,18 +127,72 @@ or
 ✔ Upload your own CSV file with the same feature format and rename to inputs.csv
 
 ---
-##⛓️ Blockchain-Based Intrusion Ledger (Bonus)
+## ⛓️ Blockchain-Backed Intrusion Ledger
 
-Each detected intrusion is:
+Our IDS includes a **lightweight custom blockchain** that provides tamper-evident storage for all detected intrusions.  
+It is designed specifically for **incident forensics**, **traceability**, and **data integrity assurance**.
 
-Hashed using SHA-256
+---
 
-Linked with previous block hash
+### 🔧 How It Works
 
-Stored in chain.json
+When you run **`launcher.py`**, the following sequence occurs:
 
-Tampering = Immediate integrity break
-→ Supports cyber forensics
+1. **`predict_offline.py` runs first**  
+   - It checks whether a `chain.json` file already exists in the project directory.  
+   - If **no chain exists**, it **creates a new blockchain** and appends a block for every flow in `inputs.csv`.  
+   - If a **chain already exists**, it **appends new intrusion blocks** to the existing chain — preserving all previous entries.
+
+2. After predictions finish, **`app.py` starts the Streamlit dashboard**, where users can:
+   - View the blockchain contents  
+   - Monitor newly added intrusion records  
+   - Verify chain integrity  
+
+---
+
+### 🔗 What Each Blockchain Block Contains
+
+Every intrusion is stored as a block containing:
+
+- The model’s verdict (Benign/Intrusion)  
+- Intrusion probability & confidence  
+- SHA-256 hash of the flow’s features  
+- Hash of the previous block  
+- Timestamp of the event  
+- A small summary of the most important features  
+- The block’s final hash (ensuring immutability)  
+
+This creates a **hash-linked ledger**, where each block depends on all previous blocks.
+
+---
+
+### 🔒 Integrity & Tamper Detection
+
+Our blockchain is **fully self-verifying**:
+
+- The GUI includes a **Verify Chain** button connected to `verify_chain.py`  
+- It recomputes hashes for every block and checks the entire chain end-to-end  
+- If **any external modification** is made — even a single digit in `chain.json`:
+  - The chain is immediately flagged as **INVALID**  
+  - The system reports the **exact block index** where integrity fails  
+  - No new blocks will be appended until the chain is fixed  
+
+This guarantees **forensic-level data integrity**, ideal for SOC environments.
+
+---
+
+### 🔁 Behavior on Multiple Runs
+
+Running **`launcher.py`** multiple times will:
+
+- Keep using the existing `chain.json`  
+- Append new blocks for new flows  
+- Grow the chain continuously over time  
+
+This enables **long-term accumulation of intrusion history** and helps build a complete audit trail for network security analysis.
+
+---
+
 
 ---
 ## 📂 Repository Structure
