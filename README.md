@@ -150,17 +150,17 @@ offline_ids/
 ├── predict_offline.py              # Batch IDS script
 ├── chain.json                      # Auto-generated event ledger
 ├── inputs.csv
-├── verify_chain.py
 ├── launcher.py
 ├── prediction_block_summary.csv    # Auto-generated summary
-│
-├── __pycache__/                    # Auto-generated cache
-│   ├── blockchain.cpython-313.pyc
+├── verify_chain.py
 │
 ├── data/
 │   ├── xgboost_intrusion_model_high_recall.pkl
 │   ├── scaler.pkl
 │   ├── xgb_high_recall_full_metrics.xlsx
+│
+├── __pycache__/                    # Auto-generated cache
+│   ├── blockchain.cpython-313.pyc
 │
 ├── LICENSE
 ├── .gitignore
