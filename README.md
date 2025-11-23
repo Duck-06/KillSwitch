@@ -6,7 +6,7 @@
 ![Streamlit](https://img.shields.io/badge/UI-Streamlit-FF4B4B.svg)
 ![ML Model](https://img.shields.io/badge/Model-XGBoost-orange.svg)
 
-CyberSecure is a **real-time Intrusion Detection System (IDS)** that classifies network traffic as **Benign** or **Intrusion**, assigns a **confidence score**, and automatically recommends **security response actions**.  
+CyberSecure is a **Intrusion Detection System (IDS)** that classifies network traffic as **Benign** or **Intrusion**, assigns a **confidence score**, and automatically recommends **security response actions**.  
 Built using a **high-recall ML model**, this system ensures **no intrusion goes undetected**, enabling fast and intelligent SOC triage.
 
 > ❗ In cybersecurity, missing a single attack can be catastrophic.  
