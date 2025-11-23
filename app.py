@@ -676,17 +676,6 @@ with tab4:
                 sample_X = X_full.loc[[idx_choice]]
 
                 # Show model prediction & probability if possible
-                try:
-                    if hasattr(model, "predict_proba"):
-                        prob = model.predict_proba(sample_X)[0, 1]
-                        pred = int(prob >= 0.5)
-                        st.write(f"Model prediction: **{pred}** — intrusion probability: **{prob:.4f}**")
-                    else:
-                        pred = int(model.predict(sample_X)[0])
-                        st.write(f"Model prediction: **{pred}**")
-                except Exception:
-                    st.info("Could not compute model prediction for the selected sample.")
-
                 # SHAP per-sample explanation (waterfall preferred, with robust fallbacks)
                 st.markdown("##### SHAP per-sample explanation (waterfall / force / table fallback)")
 
