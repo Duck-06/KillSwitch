@@ -192,6 +192,67 @@ Running **`launcher.py`** multiple times will:
 This enables **long-term accumulation of intrusion history** and helps build a complete audit trail for network security analysis.
 
 ---
+## 🧠 Explainable AI (XAI) for Transparent Intrusion Decisions
+
+Machine Learning models—especially ensemble methods like XGBoost—often work as **black boxes**, making it difficult for analysts to understand *why* a network flow was flagged as malicious.  
+To solve this, our IDS integrates **Explainable AI (XAI)** techniques that bring full transparency to every prediction.
+
+---
+
+### 🔍 Why XAI Is Required in an IDS
+
+Traditional IDS models provide a label (Benign/Intrusion) but fail to answer:
+
+- *Which network features triggered the alert?*  
+- *Is this a genuine threat or a false alarm?*  
+- *Should the SOC operator escalate, ignore, or investigate further?*  
+- *What pattern or behaviour caused the model to classify it as malicious?*
+
+Without explainability, ML-based IDS systems risk becoming **untrusted**, **opaque**, and **difficult to audit**.
+
+XAI solves this by providing **clear, human-interpretable explanations** for every decision, enabling:
+
+- Faster triage during real-time investigation  
+- Higher operator trust in the ML model  
+- Easier debugging and model improvement  
+- Stronger forensic traceability alongside the blockchain ledger  
+
+---
+
+### 🛠️ How XAI Is Implemented in This Project
+
+Our XAI layer uses two major components:
+
+#### **1. SHAP (Shapley Additive Explanations)**
+- Provides **per-flow explanations**, showing which features increased or decreased the chance of an intrusion.  
+- Generates **force plots & waterfall charts** that visually break down the model's reasoning.  
+- Helps analysts understand feature contributions such as:  
+  - Flow Duration  
+  - Packet Length Variance  
+  - Flag Counts  
+  - Flow IAT statistics  
+  - Header lengths  
+- SHAP values reveal *why* the model makes a decision—not just *what* it predicts.
+
+#### **2. Global Feature Importance**
+- Gives an overview of which features the model relies on the most across the entire dataset.  
+- Helps in optimizing feature engineering and model tuning.  
+- Reflects long-term trends in malicious network behaviour.
+
+---
+
+### 🎯 Outcome
+
+By combining **SHAP explainability** with the **Blockchain-based Intrusion Ledger**, the system provides:
+
+- Transparent, trustworthy intrusion decisions  
+- Forensic-grade auditability  
+- Actionable insights for SOC analysts  
+- A clear rationale for every alert  
+
+This XAI integration transforms the IDS from a black-box classifier into a **fully interpretable, analyst-friendly security system**.
+
+---
 
 
 ---
@@ -245,7 +306,7 @@ Developed in 24 hours at **🔥 REDACT Cybersecurity Hackathon — 2025**
 |------|------|
 | **Bhavishy Lotlikar** | Machine Learning & Dashboard |
 | **Rudra Tatuskar** | Machine Learning & Backend / Data Pipeline |
-| **Reyansh Sakriya** | Team Leader & XAI Lead |
+| **Reyansh Sakriya** | Machine Learning & XAI Lead |
 | **Indraneel Patil** | Blockchain & Security Logic |
 
 > 🤝 A united team effort — Cyber defense requires collaboration 🛡️
@@ -259,7 +320,7 @@ See LICENSE file for full details.
 ---
 📬 Contact Info
 
-👤 Author: [Bhavishy Lotlikar]
+👤 Author: [Rudra Tatuskar]
 📧 Email: [your-email]
 🐙 GitHub: [your GitHub profile]
 🔗 LinkedIn: [your LinkedIn profile]
